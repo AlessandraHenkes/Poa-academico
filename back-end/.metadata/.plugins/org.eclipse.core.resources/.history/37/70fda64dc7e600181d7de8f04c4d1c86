@@ -1,0 +1,24 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="sala")
+public class Sala {
+
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Column(name="bloco")
+	public String bloco;
+	
+	@Column(name="numero")
+	public int numero;
+	
+	
+}

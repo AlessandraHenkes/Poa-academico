@@ -1,0 +1,32 @@
+package com.engenharia.PoaAcademico.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="universidade")
+public class Universidade {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Column(name="nome")
+	public String nome;
+	
+	@Column(name="endereco")
+	public String endereco;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="data_nascimento")
+	private Date dataNascimento;
+	
+	
+}

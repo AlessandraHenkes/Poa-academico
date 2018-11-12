@@ -1,0 +1,32 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "aluno")
+public class Aluno {
+	private Long id;
+	private int semestre;
+	private float CR;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public int getSemestre() {
+		return semestre;
+	}
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
+	}
+	public float getCR() {
+		return CR;
+	}
+	public void setCR(float cR) {
+		CR = cR;
+	}
+	
+	
+}

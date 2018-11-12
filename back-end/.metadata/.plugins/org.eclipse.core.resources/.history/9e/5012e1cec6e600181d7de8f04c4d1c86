@@ -1,0 +1,8 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.Table;
+
+@Table(name="universidade")
+public class Universidade {
+
+}

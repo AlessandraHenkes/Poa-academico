@@ -1,0 +1,17 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "pessoa")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo")
+public class Pessoa {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	
+}
