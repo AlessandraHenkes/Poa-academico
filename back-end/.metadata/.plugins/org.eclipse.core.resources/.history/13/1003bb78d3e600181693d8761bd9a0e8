@@ -1,0 +1,7 @@
+package com.engenharia.PoaAcademico.model;
+
+public class AlunoModel {
+	public String nome;
+	public Date dataNascimento;
+	
+}

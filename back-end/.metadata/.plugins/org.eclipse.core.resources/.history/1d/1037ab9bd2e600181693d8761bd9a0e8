@@ -1,0 +1,5 @@
+package com.engenharia.PoaAcademico.repository;
+
+public interface AlunoRepository {
+
+}

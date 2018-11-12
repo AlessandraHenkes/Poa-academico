@@ -11,6 +11,12 @@ import javax.persistence.*;
 @DiscriminatorColumn(name = "tipo")
 public class Pessoa {
 	
+	public Pessoa(String nome, Date dataNascimento) {
+		super();
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+	}
+
 	@Id
 	@GeneratedValue
 	private Long id;

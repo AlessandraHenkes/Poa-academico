@@ -1,0 +1,7 @@
+package com.engenharia.PoaAcademico.controller;
+
+@Controller
+@RequestMapping(path = "/aluno")
+public class AlunoController {
+
+}

@@ -6,6 +6,15 @@ import javax.persistence.*;
 @Table(name="matricula_curso")
 public class MatriculaCurso {
 	
+	
+	
+	public MatriculaCurso(Estado estado, Aluno aluno, Curso curso) {
+		super();
+		this.estado = estado;
+		this.aluno = aluno;
+		this.curso = curso;
+	}
+
 	@Id
 	@GeneratedValue
 	private Long id;

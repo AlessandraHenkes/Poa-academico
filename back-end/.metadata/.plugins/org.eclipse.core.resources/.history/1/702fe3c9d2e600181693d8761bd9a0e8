@@ -1,0 +1,8 @@
+package com.engenharia.PoaAcademico.controller;
+
+@Controller
+@RequestMapping(path = "/movies")
+
+public class AlunoController {
+
+}
