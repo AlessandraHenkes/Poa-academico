@@ -1,0 +1,9 @@
+package com.engenharia.PoaAcademico.controller;
+
+public class CursoController {
+
+	public CursoController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

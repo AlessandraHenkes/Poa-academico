@@ -1,0 +1,21 @@
+package com.engenharia.PoaAcademico.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.engenharia.PoaAcademico.repository.CursoRepository;
+
+@RestController
+@RequestMapping(path = "/curso")
+public class CursoController {
+	
+	@Autowired
+	public CursoRepository cursoRepository;
+	
+	
+	public List<Curso> getAll(){
+		
+	}
+
+}
