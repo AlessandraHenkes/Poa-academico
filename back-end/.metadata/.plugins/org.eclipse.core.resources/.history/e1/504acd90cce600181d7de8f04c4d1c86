@@ -1,0 +1,30 @@
+package com.engenharia.PoaAcademico.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="aula")
+public class Aula {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="horario")
+	private Date horario;
+	
+	@Column(name = "dia_semana")
+	@Enumerated(EnumType.STRING)
+	private Dias diaSemana;
+}

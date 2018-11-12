@@ -1,0 +1,36 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+@Entity
+@DiscriminatorValue("A")
+public class Aluno extends Pessoa{
+	
+	@Column(name="semestre")
+	private int semestre;
+	
+	@Column(name="cr")
+	private float CR;
+	
+	@ManyToMany
+	@JoinTable(name = "veiculo_acessorios",
+	joinColumns = @JoinColumn(name = "cod_veiculo"),
+	inverseJoinColumns = @JoinColumn(name = "cod_acessorio"))
+	private List<Aula> aulas;
+
+	public int getSemestre() {
+		return semestre;
+	}
+	
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
+	}
+	
+	public float getCR() {
+		return CR;
+	}
+	
+}

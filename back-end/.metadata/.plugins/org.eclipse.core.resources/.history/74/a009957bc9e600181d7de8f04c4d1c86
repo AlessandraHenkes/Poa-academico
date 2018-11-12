@@ -1,0 +1,29 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="curso")
+public class Curso {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Column(name="nome")
+	private String curso;
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+	
+	
+}

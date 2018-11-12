@@ -1,0 +1,46 @@
+package com.engenharia.PoaAcademico.entity;import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="disciplina")
+public class Disciplina {
+
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Column(name="nome")
+	private String nome;
+	
+	@Column(name="carga_horaria")
+	private int cargaHoraria;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getCargaHoraria() {
+		return cargaHoraria;
+	}
+
+	public void setCargaHoraria(int cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+	
+	
+}

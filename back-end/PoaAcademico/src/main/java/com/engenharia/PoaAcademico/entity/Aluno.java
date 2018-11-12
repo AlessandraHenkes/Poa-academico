@@ -1,8 +1,8 @@
 package com.engenharia.PoaAcademico.entity;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import java.util.List;
+
+import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue("A")
@@ -13,6 +13,12 @@ public class Aluno extends Pessoa{
 	
 	@Column(name="cr")
 	private float CR;
+	
+	@ManyToMany
+	@JoinTable(name = "matricula_aula",
+	joinColumns = @JoinColumn(name = "cod_aluno"),
+	inverseJoinColumns = @JoinColumn(name = "cod_aula"))
+	private List<Aula> aulas;
 
 	public int getSemestre() {
 		return semestre;
@@ -24,10 +30,6 @@ public class Aluno extends Pessoa{
 	
 	public float getCR() {
 		return CR;
-	}
-	
-	public void setCR(float cR) {
-		CR = cR;
 	}
 	
 }

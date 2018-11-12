@@ -1,0 +1,41 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="matricula_curso")
+public class MatriculaCurso {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Column(name = "estado")
+	@Enumerated(EnumType.STRING)
+	public Estado estado;
+	
+	@ManyToOne
+	public Aluno aluno;
+	
+	@ManyToOne
+	public Curso curso;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+	
+	
+	
+}

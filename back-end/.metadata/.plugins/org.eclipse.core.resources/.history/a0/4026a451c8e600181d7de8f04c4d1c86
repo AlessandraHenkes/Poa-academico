@@ -1,0 +1,12 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="curso")
+public class Curso {
+	
+	@Column(name="nome")
+	private String curso;
+}
