@@ -1,0 +1,107 @@
+package com.engenharia.PoaAcademico.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="aula")
+public class Aula {
+	
+	
+	
+	public Aula() {
+		super();
+	}
+
+	public Aula(Date horario, Dias diaSemana, Professor professor, Curso curso,
+			Sala sala) {
+		super();
+		this.horario = horario;
+		this.diaSemana = diaSemana;
+		this.professor = professor;
+		this.curso = curso;
+		this.sala = sala;
+	}
+
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="horario")
+	private Date horario;
+	
+	@Column(name = "dia_semana")
+	@Enumerated(EnumType.STRING)
+	private Dias diaSemana;
+	
+	@ManyToOne
+	private Professor professor;
+	
+	@ManyToOne
+	private Curso curso;
+
+	@ManyToOne
+	private Sala sala;
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getHorario() {
+		return horario;
+	}
+
+	public void setHorario(Date horario) {
+		this.horario = horario;
+	}
+
+	public Dias getDiaSemana() {
+		return diaSemana;
+	}
+
+	public void setDiaSemana(Dias diaSemana) {
+		this.diaSemana = diaSemana;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+	
+	
+	
+}

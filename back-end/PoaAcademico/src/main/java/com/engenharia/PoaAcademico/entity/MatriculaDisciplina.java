@@ -13,6 +13,16 @@ import javax.persistence.Table;
 @Table(name="matricula_disciplina")
 public class MatriculaDisciplina {
 	
+	public MatriculaDisciplina(){
+		
+	}
+	
+	public MatriculaDisciplina(Estado estado, Aluno aluno, Disciplina disciplina) {
+		this.estado = estado;
+		this.aluno = aluno;
+		this.disciplina = disciplina;
+	}
+
 	@Id
 	@GeneratedValue
 	private Long id;

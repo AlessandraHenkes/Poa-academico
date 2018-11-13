@@ -10,6 +10,10 @@ import javax.persistence.Entity;
 @DiscriminatorValue("P")
 public class Professor extends Pessoa{
 	
+	public Professor(){
+		
+	}
+	
 	public Professor(String nome, Date dataNascimento, String formacao) {
 		super(nome, dataNascimento);
 		this.formacao = formacao;

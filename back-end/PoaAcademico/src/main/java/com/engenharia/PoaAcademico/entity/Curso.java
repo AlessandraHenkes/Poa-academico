@@ -14,6 +14,17 @@ import javax.persistence.Table;
 @Table(name="curso")
 public class Curso {
 	
+	public Curso(){
+		
+	}
+	
+	public Curso(String curso, Universidade universidade,
+			List<Disciplina> disciplinas) {
+		this.curso = curso;
+		this.universidade = universidade;
+		this.disciplinas = disciplinas;
+	}
+
 	@Id
 	@GeneratedValue
 	private Long id;

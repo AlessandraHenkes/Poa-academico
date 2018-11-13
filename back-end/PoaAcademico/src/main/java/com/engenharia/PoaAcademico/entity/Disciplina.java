@@ -7,6 +7,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name="disciplina")
 public class Disciplina {
+	
+	public Disciplina(String nome, int cargaHoraria) {
+		this.nome = nome;
+		this.cargaHoraria = cargaHoraria;
+	}
+	
+	public Disciplina(){
+		
+	}
 
 	@Id
 	@GeneratedValue

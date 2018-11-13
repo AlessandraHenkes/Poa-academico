@@ -17,6 +17,16 @@ import javax.persistence.TemporalType;
 @Table(name="universidade")
 public class Universidade {
 	
+	public Universidade(){
+		
+	}
+	
+	public Universidade(String nome, String endereco, List<Sala> salas) {
+		this.nome = nome;
+		this.endereco = endereco;
+		this.salas = salas;
+	}
+
 	@Id
 	@GeneratedValue
 	private Long id;

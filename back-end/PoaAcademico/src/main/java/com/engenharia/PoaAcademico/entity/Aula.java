@@ -16,7 +16,20 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="aula")
 public class Aula {
-	
+		
+	public Aula() {
+
+	}
+
+	public Aula(Date horario, Dias diaSemana, Professor professor, Curso curso,
+			Sala sala) {
+		this.horario = horario;
+		this.diaSemana = diaSemana;
+		this.professor = professor;
+		this.curso = curso;
+		this.sala = sala;
+	}
+
 	@Id
 	@GeneratedValue
 	private Long id;

@@ -1,0 +1,63 @@
+package com.engenharia.PoaAcademico.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="matricula_disciplina")
+public class MatriculaDisciplina {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@Column(name = "estado")
+	@Enumerated(EnumType.STRING)
+	public Estado estado;
+	
+	@ManyToOne
+	public Aluno aluno;
+	
+	@ManyToOne
+	public Disciplina disciplina;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
+	
+	
+}

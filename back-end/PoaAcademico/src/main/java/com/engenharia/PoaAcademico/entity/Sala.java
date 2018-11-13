@@ -10,6 +10,17 @@ import javax.persistence.Table;
 @Table(name="sala")
 public class Sala {
 
+	public Sala(){
+		
+	}
+	
+	public Sala(String bloco, int numero) {
+		this.bloco = bloco;
+		this.numero = numero;
+	}
+
+
+
 	@Id
 	@GeneratedValue
 	private Long id;

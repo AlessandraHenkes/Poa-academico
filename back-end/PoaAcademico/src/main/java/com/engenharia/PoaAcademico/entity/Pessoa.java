@@ -10,9 +10,13 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo")
 public class Pessoa {
-	
+		
+	public Pessoa() {
+
+	}
+
 	public Pessoa(String nome, Date dataNascimento) {
-		super();
+
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 	}

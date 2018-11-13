@@ -9,6 +9,10 @@ import javax.persistence.*;
 @DiscriminatorValue("A")
 public class Aluno extends Pessoa{
 	
+	public Aluno(){
+		
+	}
+
 	public Aluno(String nome, Date dataNascimento, int semestre,
 			float cR, List<Aula> aulas) {
 		super( nome, dataNascimento);
