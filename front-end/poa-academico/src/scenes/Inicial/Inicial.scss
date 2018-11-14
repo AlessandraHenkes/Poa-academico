@@ -1,0 +1,21 @@
+@import './src/assets/styles/variables';
+
+.inicial {
+    &-content {
+        @include display-flex(row, center, space-around);
+        flex-wrap: wrap;
+        height: $default-page-height;
+
+        .carousel-poa {
+            margin-top: 80px;
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+
+        .sobre {
+            margin-left: 50px;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+    }
+}
