@@ -1,0 +1,23 @@
+@import './assets/styles/variables';
+
+.app {
+  display: flex;
+}
+
+.app-content {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.header {
+  .title {
+    color: $color-primary;
+    font-weight: $bold-font;
+    margin: 0;
+  }
+
+  .subtitle {
+    color: $color-secondary;
+  }
+}

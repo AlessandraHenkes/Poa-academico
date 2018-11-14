@@ -1,0 +1,20 @@
+@import './src/assets/styles/variables';
+
+.gerenciar-alunos {
+
+    &-content {
+        margin: 50px 100px;
+
+        .pesquisar-alunos {
+            margin-top: 50px;
+
+            .poa-input {
+                margin: 0;  
+            }
+        }
+
+        .button-cadastrar-aluno {
+            margin-top: 15%;
+        }
+    }
+}

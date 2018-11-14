@@ -1,0 +1,26 @@
+@import './src/assets/styles/variables';
+
+.cadastrar-aluno {
+    margin: 50px 100px;
+    height: $default-page-height;
+
+    &-content {
+        @include display-flex(row, center, center);
+        width: $big-width;
+    }
+
+    .content {
+        @include display-flex(row, center, center);
+    }
+
+    .form-cadastrar-aluno {
+        @include display-flex(column, center, center);
+        width: $big-width;
+        margin: $big-margin;
+    }
+
+    &-button {
+        width: 100%;
+        margin-top: 30px;
+    }
+}

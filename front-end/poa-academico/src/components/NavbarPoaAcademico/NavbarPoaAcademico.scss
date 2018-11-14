@@ -1,0 +1,19 @@
+@import './src/assets/styles/variables';
+
+
+.navbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    .nav-wrapper {
+        background-color: $color-secondary;
+        
+        a {
+            font-size: $default-size-font;
+            font-weight: $bold-font;
+            color: $color-primary;
+        }
+    }
+}
