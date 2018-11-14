@@ -2,8 +2,8 @@ package com.engenharia.PoaAcademico;
 
 import static org.junit.Assert.assertEquals;
 
-import java.sql.Date;
-//import java.util.Date;
+//import java.sql.Date;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -62,7 +62,7 @@ public class PoaAcademicoApplicationTests {
 		
 		Aluno aluno = new Aluno(nome, dataNasc, semestre, cR, aulas);
 		
-		assertEquals("Fulaninho", aluno.getNome(), "name must be equals to 'Fulaninho'");
+		assertEquals("Fulaninho", aluno.getNome());
 	}
 
 }
