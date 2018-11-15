@@ -4,16 +4,34 @@ import Button from '../../components/generics/Button/Button';
 import Input from '../../components/generics/Input/Input';
 import NavbarPoaAcademico from '../../components/NavbarPoaAcademico/NavbarPoaAcademico';
 import LoginService from '../../services/LoginService';
+import AlertaService from '../../services/AlertaService';
+import { Redirect } from 'react-router-dom';
 import './Login.scss';
 
 export default class Login extends React.Component {
   constructor() {
     super();
-    this.state = {
-      email: '',
-      password: '',
-    };
+    this.state = this.getInitialState();
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  getInitialState() {
+    return {
+      email: '',
+      senha: '',
+      shouldRedirectHome: false,
+    };
+  }
+
+  _verifyUserLogged() {
+    return !!LoginService.getUsuarioLogado();
+  }
+
+  componentDidMount() {
+    if (this._verifyUserLogged()) {
+      this.goToHome();
+    }
   }
 
   handleChange(event) {
@@ -25,22 +43,40 @@ export default class Login extends React.Component {
     });
   }
 
-  doLogin() {
-    LoginService.login(this.state.email, this.state.password)
-      .then(result => {
-        console.log('funfou');
+  handleSubmit(e) {
+    e.preventDefault();
+    this._login();
+  }
+
+  _login() {
+    const email = this.state.email;
+    const senha = this.state.senha;
+
+    LoginService.login(email, senha)
+      .then(() => {
+        this.goToHome();
       })
       .catch(error => {
-        console.log(error);
+        AlertaService.error('Ooops!', error.message);
       });
   }
 
+  goToHome() {
+    this.setState({
+      shouldRedirectHome: true,
+    });
+  }
+
   render() {
+    if (this.state.shouldRedirectHome) {
+      return <Redirect to='/inicial' />;
+    }
+
     return (
       <div className='login'>
         <NavbarPoaAcademico />
         <Paper className='login-content' elevation={1}>
-          <form className='form-login' onSubmit={this.doLogin()}>
+          <form className='form-login' onSubmit={this.handleSubmit} method='post'>
             <h3 className='login-title'>Entre em sua conta</h3>
             <Input
               name='email'
@@ -51,10 +87,10 @@ export default class Login extends React.Component {
               text='E-mail'
             />
             <Input
-              name='password'
+              name='senha'
               type='password'
               required={true}
-              value={this.state.password}
+              value={this.state.senha}
               onChange={this.handleChange}
               text='Senha'
             />

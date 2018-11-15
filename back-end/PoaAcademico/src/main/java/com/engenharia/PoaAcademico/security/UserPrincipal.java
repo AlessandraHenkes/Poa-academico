@@ -31,7 +31,7 @@ public class UserPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long id, String login, String senha,Collection<? extends GrantedAuthority> authorities) {
+    public UserPrincipal(Long id, String login, String senha, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.login = login;
         this.senha = senha;
@@ -78,14 +78,16 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	return this.senha;
     }
 
     @Override
     public String getUsername() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.login;
     }
     
+    public Long getId(){
+    	return this.id;
+    }
     
-
 }

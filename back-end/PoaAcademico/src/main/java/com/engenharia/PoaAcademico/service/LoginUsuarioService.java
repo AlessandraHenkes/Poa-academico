@@ -26,9 +26,6 @@ public class LoginUsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private CriptografadorDeAcessoService criptografarChaveAcessoService;
-
-    @Autowired
     private AuthenticationService authenticationService;
 
     @Transactional
@@ -38,21 +35,17 @@ public class LoginUsuarioService {
 
         Usuario usuario;
 
-        String chaveAcesso = requestDto.login.concat(requestDto.senha);
-
         if(usuarioSalvo.isPresent()){
 
             usuario = usuarioSalvo.get();
 
-            if (!criptografarChaveAcessoService.compararChaves(chaveAcesso, usuario.getSenha())) {
-                throw new UsuarioInvalidoException();
-            }
-
         }else{
             throw new UsuarioInexistenteException();
         }
+        
+        System.out.println(usuario);
 
-        String token = authenticationService.authenticate(usuario.getLogin(), usuario.getId());
+        String token = authenticationService.authenticate(usuario.getLogin(), usuario.getSenha());
         return new LoginUsuarioModel(token);
     }
 

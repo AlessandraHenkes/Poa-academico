@@ -13,5 +13,15 @@ import lombok.Data;
  */
 @Data
 public class LoginUsuarioModel {
+	
+	public LoginUsuarioModel(String token) {
+		this.token = token;
+	}
+	
     private final String token;
+
+	public String getToken() {
+		return token;
+	}   
+   
 }

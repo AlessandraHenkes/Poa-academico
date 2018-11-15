@@ -45,7 +45,7 @@ public class JwtTokenProvider {
             .signWith(io.jsonwebtoken.SignatureAlgorithm.HS512, jwtSecret)
 
                 .claim("id", userPrincipal.getId())
-                .claim("login", userPrincipal.getLogin())
+                .claim("login", userPrincipal.getUsername())
             // .claim(key, value)
 
             .compact();

@@ -13,6 +13,8 @@ import ImageTwo from '../../assets/images/book.jpg';
 import ImageThree from '../../assets/images/education.jpg';
 import ImageFour from '../../assets/images/school.jpg';
 import ImageFive from '../../assets/images/tablet.jpg';
+import { Redirect } from 'react-router-dom';
+import LoginService from '../../services/LoginService';
 import './Inicial.scss';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -54,7 +56,24 @@ class Inicial extends React.Component {
     super(props);
     this.state = {
       activeStep: 0,
+      shouldRedirectHome: false,
     };
+  }
+
+  _verifyUserLogged() {
+    return !!LoginService.getUsuarioLogado();
+  }
+
+  componentDidMount() {
+    if (this._verifyUserLogged()) {
+      this.goToHome();
+    }
+  }
+
+  goToHome() {
+    this.setState({
+      shouldRedirectHome: true,
+    });
   }
 
   handleNext = () => {
@@ -77,6 +96,10 @@ class Inicial extends React.Component {
     const { classes, theme } = this.props;
     const { activeStep } = this.state;
     const maxSteps = tutorialSteps.length;
+
+    if (this.state.shouldRedirectHome) {
+      return <Redirect to='/inicial' />;
+    }
 
     return (
       <div className={[classes.root, ' inicial']}>

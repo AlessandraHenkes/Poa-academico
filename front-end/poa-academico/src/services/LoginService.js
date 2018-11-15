@@ -12,27 +12,29 @@ export default class LoginService {
         senha
       })
       .then(result => {
-        console.log(result);
-        debugger
         let token = result.data.token;
         let decoded = jwt_decode(token);
+
+        console.log(decoded)
         const usuarioLogado = new UsuarioLogado(
           decoded.id,
-          decoded.email,
+          decoded.login,
           token
         );
-        localStorage.setItem("idUser", result.data.id);
+        localStorage.setItem("idUser", decoded.id);
+        localStorage.setItem("emailUser", decoded.login);
         LoginService._setUsuarioLogado(usuarioLogado);
         return usuarioLogado;
       })
       .catch(error => {
-        throw new LoginError(error.response.data);
+        throw new LoginError(error.error);
       });
   }
 
   static logout() {
     localStorage.removeItem("USUARIO_LOGADO");
     localStorage.removeItem("idUser");
+    localStorage.removeItem("emailUser");
   }
 
   static getUsuarioLogado() {
