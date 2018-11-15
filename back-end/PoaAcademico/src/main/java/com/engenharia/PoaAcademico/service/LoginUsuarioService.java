@@ -52,7 +52,7 @@ public class LoginUsuarioService {
             throw new UsuarioInexistenteException();
         }
 
-        String token = authenticationService.authenticate(usuario.getLogin(), usuario.getSenha());
+        String token = authenticationService.authenticate(usuario.getLogin(), usuario.getId());
         return new LoginUsuarioModel(token);
     }
 
