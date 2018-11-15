@@ -13,9 +13,10 @@ spring:
     username: root
     password: toor
   jpa:
-    properties:
-      hibernate:
-        default_schema: poa_academico
+    database: MySQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   jackson:
     serialization:
       write-dates-as-timestamps: true
