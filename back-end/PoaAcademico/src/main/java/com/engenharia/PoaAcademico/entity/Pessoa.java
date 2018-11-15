@@ -15,9 +15,9 @@ public class Pessoa {
 
 	}
 
-	public Pessoa(String nome, Date dataNascimento) {
-
+	public Pessoa(String nome, String cpf, Date dataNascimento) {
 		this.nome = nome;
+		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -27,6 +27,9 @@ public class Pessoa {
 	
 	@Column(name="nome")
 	private String nome;
+	
+	@Column(name="cpf")
+	private String cpf;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="data_nascimento")
@@ -46,6 +49,14 @@ public class Pessoa {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public Date getDataNascimento() {

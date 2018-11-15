@@ -9,7 +9,15 @@
             margin-top: 50px;
 
             .poa-input {
-                margin: 0;  
+                margin: 0;
+            }
+
+            .buttons-control {
+                display: flex;
+
+                .button {
+                    width: 50%;
+                }
             }
 
             .button {
@@ -17,8 +25,34 @@
             }
         }
 
+        .aluno-content {
+            @include display-flex(column, center, space-between);
+            color: $color-primary;
+            width: 100%;
+            margin-bottom: 30px;
+
+            .campos,
+            .aluno {
+                @include display-flex(row, center, space-between);
+                width: 100%;
+                padding: 10px;
+            }
+
+            .campos {
+                background-color: $color-secondary;
+            }
+
+            .aluno {
+                background-color: #ffffff;
+            }
+        }
+
         .button-cadastrar-aluno {
-            margin-top: 15%;
+            margin-top: 10%;
+        }
+
+        .button-listar-alunos {
+            margin: 15px 0;
         }
     }
 }

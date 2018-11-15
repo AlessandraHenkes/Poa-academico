@@ -10,6 +10,11 @@
   position: relative;
 
 
+  .input-field {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
   input:not([type]):focus:not([readonly]),
   input[type=text]:focus:not([readonly]),
   input[type=password]:focus:not([readonly]),

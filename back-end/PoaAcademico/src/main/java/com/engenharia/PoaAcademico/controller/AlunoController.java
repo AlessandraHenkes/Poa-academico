@@ -28,14 +28,15 @@ public class AlunoController {
 	
 	@Autowired
 	private AlunoRepository alunoRepository;
+	@Autowired
 	private CursoRepository cursoRepository;
+	@Autowired
 	private MatriculaCursoRepository matriculaCursoRepository;
 
 	@PostMapping(path = "/create")
-    @ResponseBody
     public Aluno create(@RequestBody AlunoModel alunoModel){
-		Aluno aluno = new Aluno(alunoModel.nome, alunoModel.dataNascimento, alunoModel.semestre, alunoModel.cr, null);
-		Curso curso = cursoRepository.getOne(alunoModel.idCurso);
+		Aluno aluno = new Aluno(alunoModel.nome, alunoModel.cpf, alunoModel.dataNascimento, alunoModel.semestre, alunoModel.cr);
+		Curso curso = cursoRepository.findById(alunoModel.idCurso).get();
 		MatriculaCurso matriculaCurso;
 		
 		aluno = alunoRepository.save(aluno);
@@ -55,6 +56,12 @@ public class AlunoController {
     @ResponseBody
     public Aluno getByName(@RequestParam(name="nome") String nome){
         return alunoRepository.findByNome(nome);
+    }
+    
+    @GetMapping(path="/getByNomeLike")
+    @ResponseBody
+    public List<Aluno> getByNomeLike(@RequestParam(name="nome") String nome){
+        return alunoRepository.findByNomeLike(nome);
     }
     
 }

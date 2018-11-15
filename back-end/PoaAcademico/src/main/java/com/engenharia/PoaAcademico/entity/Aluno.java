@@ -13,12 +13,10 @@ public class Aluno extends Pessoa{
 		
 	}
 
-	public Aluno(String nome, Date dataNascimento, int semestre,
-			float cR, List<Aula> aulas) {
-		super( nome, dataNascimento);
+	public Aluno(String nome, String cpf, Date dataNascimento, int semestre, float cR) {
+		super(nome, cpf, dataNascimento);
 		this.semestre = semestre;
-		CR = cR;
-		this.aulas = aulas;
+		this.CR = cR;
 	}
 
 	@Column(name="semestre")
