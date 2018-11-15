@@ -29,11 +29,11 @@ public class AuthenticationService {
     @Autowired
     JwtTokenProvider tokenProvider;
 
-    public String authenticate(String username, String password) {
+    public String authenticate(String username, Long id) {
         Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(
                 username,
-                password
+                id
             )
         );
 
