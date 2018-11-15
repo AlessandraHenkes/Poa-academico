@@ -43,7 +43,7 @@ export default class GerenciarAlunos extends React.Component {
             <Button
               primary={true}
               type='submit'
-              size='small'
+              size='medium'
               text='Pesquisar'
             />
           </div>

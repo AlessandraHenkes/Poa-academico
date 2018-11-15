@@ -3,13 +3,17 @@
 .gerenciar-alunos {
 
     &-content {
-        margin: 50px 100px;
+        margin: 50px 15%;
 
         .pesquisar-alunos {
             margin-top: 50px;
 
             .poa-input {
                 margin: 0;  
+            }
+
+            .button {
+                margin-top: 15px;
             }
         }
 

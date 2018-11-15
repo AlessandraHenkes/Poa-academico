@@ -1,5 +1,6 @@
 package com.engenharia.PoaAcademico.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 import java.util.List;
 
@@ -37,6 +38,7 @@ public class Universidade {
 	@Column(name="endereco")
 	public String endereco;
 	
+        @JsonIgnore
 	@OneToMany(mappedBy = "universidade")
 	public List<Sala> salas;
 	
