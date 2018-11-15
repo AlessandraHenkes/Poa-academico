@@ -23,10 +23,103 @@ import com.engenharia.PoaAcademico.entity.Universidade;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PoaAcademicoApplicationTests {
+public class PoaAcademicoApplicationTests {	
 	
 	@Test
-	public void contextLoads() {
+	public void create_Disciplina() {
+		
+		Disciplina disciplina = new Disciplina("Matemática", 60);
+		
+		assertEquals("Matemática", disciplina.getNome());
+		assertEquals(60, disciplina.getCargaHoraria());
+	}
+	
+	@Test
+	public void create_Sala() {
+		
+		Sala sala = new Sala("A", 23);
+		
+		assertEquals("A", sala.getBloco());
+	}
+	
+	@Test
+	public void create_Universidade() {
+		
+		List<Sala> salasUni = new LinkedList<>();
+		
+		for (int i = 0; i < 4; i++) {
+			if (i%2 == 0) {	
+				salasUni.add(new Sala("A", (i * 2)));
+			} else {
+				salasUni.add(new Sala("B", (i * 3)));
+			}
+		}
+				
+		Universidade uni = new Universidade("Universidade de Porto Alegre", "Av. Porto Alegre, 25 - Centro", salasUni);
+		
+		assertEquals("Universidade de Porto Alegre", uni.getNome());
+	}
+	
+	@Test
+	public void create_Curso() {
+		
+		List<Sala> salasUni = new LinkedList<>();
+		List<Disciplina> disciplinasCurso = new LinkedList<>();
+		
+		for (int i = 0; i < 4; i++) {
+			if (i%2 == 0) {	
+				disciplinasCurso.add(new Disciplina("Português", (i * 20 - 2)));
+				salasUni.add(new Sala("A", (i * 2)));
+			} else {
+				disciplinasCurso.add(new Disciplina("Matemática", (i * 30)));
+				salasUni.add(new Sala("B", (i * 3)));
+			}
+		}
+				
+		Universidade uni = new Universidade("Universidade de Porto Alegre", "Av. Porto Alegre, 25 - Centro", salasUni);
+		
+		Curso curso = new Curso("Linguagens e suas Matemáticas", uni, disciplinasCurso);
+		
+		assertEquals("Linguagens e suas Matemáticas", curso.getCurso());
+		assertEquals("Av. Porto Alegre, 25 - Centro", curso.getUniversidade().getEndereco());
+	}
+	
+	@Test
+	public void create_Professor() {		
+		Professor professor = new Professor("Arnaldo", new Date(1987, 8, 27), "Letras");
+								
+		assertEquals("Letras", professor.getFormacao());
+		assertEquals(new Date(1987, 8, 27), professor.getDataNascimento());
+	}
+	
+	@Test
+	public void create_Aula() {
+		
+		List<Sala> salasUni = new LinkedList<>();
+		List<Disciplina> disciplinasCurso = new LinkedList<>();
+		
+		for (int i = 0; i < 4; i++) {
+			if (i%2 == 0) {	
+				disciplinasCurso.add(new Disciplina("Português", (i * 20 - 2)));
+				salasUni.add(new Sala("A", (i * 2)));
+			} else {
+				disciplinasCurso.add(new Disciplina("Matemática", (i * 30)));
+				salasUni.add(new Sala("B", (i * 3)));
+			}
+		}
+				
+		Universidade uni = new Universidade("Universidade de Porto Alegre", "Av. Porto Alegre, 25 - Centro", salasUni);
+		
+		Curso curso = new Curso("Linguagens e suas Matemáticas", uni, disciplinasCurso);
+		
+		Professor professor = new Professor("Arnaldo", new Date(1987, 8, 27), "Letras");
+				
+		List<Aula> aulas = new LinkedList<>();
+		
+		aulas.add(new Aula(new Date(2018, 11, 12), Dias.SEGUNDA, professor, curso, salasUni.get(0)));
+		
+		assertEquals("Arnaldo", aulas.get(0).getProfessor().getNome());
+		assertEquals(4, aulas.get(0).getCurso().getDisciplinas().size());
 	}
 	
 	@Test
