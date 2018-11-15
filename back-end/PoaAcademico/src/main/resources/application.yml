@@ -16,7 +16,7 @@ spring:
     database: MySQL
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   jackson:
     serialization:
       write-dates-as-timestamps: true
