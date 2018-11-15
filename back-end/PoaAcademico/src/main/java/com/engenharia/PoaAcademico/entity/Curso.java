@@ -1,5 +1,6 @@
 package com.engenharia.PoaAcademico.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -35,6 +36,7 @@ public class Curso {
 	@ManyToOne
 	private Universidade universidade;
 	
+        @JsonIgnore
 	@OneToMany(mappedBy = "curso")
 	public List<Disciplina> disciplinas;
 
