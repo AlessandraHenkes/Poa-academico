@@ -137,10 +137,11 @@ class Inicial extends React.Component {
             <div className='header'>
               <h3 className='title'>Sobre nós</h3>
               <div className='texto-sobre'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
-                rem numquam explicabo, ullam nihil aspernatur dolor qui modi sed
-                iure. Doloribus incidunt obcaecati doloremque ullam tempora
-                placeat consequatur hic repellat?
+                Somos uma iniciativa privada de Porto Alegre e região, que, tem
+                como objetivo, fomentar e disponibilizar recursos para a melhor
+                administração do ensino superior, e a facilitação dos processos
+                de confirmação, cancelamento, e gerenciamento de matrícula pelo
+                meio virtual.
               </div>
             </div>
           </div>
