@@ -4,6 +4,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,6 +20,7 @@ import com.engenharia.PoaAcademico.model.AlunoModel;
 import com.engenharia.PoaAcademico.repository.AlunoRepository;
 import com.engenharia.PoaAcademico.repository.CursoRepository;
 import com.engenharia.PoaAcademico.repository.MatriculaCursoRepository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping(path = "/aluno")
@@ -40,5 +44,17 @@ public class AlunoController {
 		
 		return aluno;
 	}
-	
+
+    @GetMapping(path="/getAll")
+    @ResponseBody
+    public List<Aluno> getAll(){
+        return alunoRepository.findAll();
+    }
+    
+    @GetMapping(path="/getByNome")
+    @ResponseBody
+    public Aluno getByName(@RequestParam(name="nome") String nome){
+        return alunoRepository.findByNome(nome);
+    }
+    
 }
